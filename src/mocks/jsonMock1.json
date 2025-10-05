@@ -1,0 +1,101 @@
+{
+  "modules": [
+    {
+      "id": "hero_1",
+      "type": "hero",
+      "blocks": [
+        {
+          "block_order": 1,
+          "image_desktop": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=1200",
+          "image_mobile": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=800",
+          "alt": "Man in autumn clothing",
+          "headline": "New Season",
+          "subheading": "Shop Men",
+          "cta": {
+            "label": "Shop Now",
+            "url": "/",
+            "style": "primary"
+          },
+          "overlay_content_align": "left",
+          "design_change_needed": false
+        }
+      ]
+    },
+    {
+      "id": "promo_1",
+      "type": "promo",
+      "blocks": [
+        {
+          "block_order": 1,
+          "image_desktop": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=400",
+          "image_mobile": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=400",
+          "alt": "Woman in autumn coat",
+          "headline": "Womens' Coats",
+          "subheading": "from £20",
+          "cta": {
+            "label": "Buy Now",
+            "url": "/",
+            "style": "secondary"
+          },
+          "design_change_needed": false
+        },
+        {
+          "block_order": 2,
+          "image_desktop": "https://images.unsplash.com/photo-1616150840617-a0124ea42a1f?q=80&w=687",
+          "image_mobile": "https://images.unsplash.com/photo-1616150840617-a0124ea42a1f?q=80&w=687",
+          "alt": "Autumn hoody",
+          "headline": "Home Trends",
+          "subheading": "New collection",
+          "cta": {
+            "label": "Explore",
+            "url": "/",
+            "style": "primary"
+          },
+          "overlay_content_align": "centre",
+          "design_change_needed": true
+        }
+      ]
+    },
+    {
+      "id": "hero_2",
+      "type": "hero",
+      "blocks": [
+        {
+          "block_order": 1,
+          "image_desktop": "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?w=1200",
+          "image_mobile": "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?w=1200",
+          "alt": "Clothes hanging on rack",
+          "headline": "Winter Styles",
+          "subheading": "Shop Winter",
+          "cta": {
+            "label": "Explore",
+            "url": "/",
+            "style": "secondary"
+          },
+          "overlay_content_align": "left",
+          "design_change_needed": false
+        }
+      ]
+    },
+    {
+      "id": "promo_2",
+      "type": "promo",
+      "blocks": [
+        {
+          "block_order": 1,
+          "image_desktop": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=400",
+          "image_mobile": "https://plus.unsplash.com/premium_photo-1675186049366-64a655f8f537?w=400",
+          "alt": "Womans jacket",
+          "design_change_needed": false
+        },
+        {
+          "block_order": 2,
+          "image_desktop": "https://images.unsplash.com/photo-1616150840617-a0124ea42a1f?q=80&w=687",
+          "image_mobile": "https://images.unsplash.com/photo-1616150840617-a0124ea42a1f?q=80&w=687",
+          "alt": "Grey hoody",
+          "design_change_needed": false
+        }
+      ]
+    }
+  ]
+}
