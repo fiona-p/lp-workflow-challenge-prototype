@@ -96,8 +96,8 @@ I chose **Google Sheets**, as it offered the most practical advantages for this 
 
 ### Option 1: Custom App Approach
 
-This would be a backend setup, such as a custom app running on a server. The app will have a simple interface.  
-(Maybe this would be an AWS Lambda function running a Node.js script.)
+This would be a backend setup, such as a custom app with a simple interface to manage content updates.
+It could be a serverless function (e.g. AWS Lambda running a Node.js script), or a more traditional server-based app built with Express.
 
 **Custom app workflow:**  
 (AM) updates the Google Sheet.
@@ -209,7 +209,7 @@ The deployment pipeline then deploys the frontend with the updated JSON to stagi
 
 I believe the best solution is to use a **Custom App (Option 1)** with the **hybrid approach (C)** for releasing updates.
 
-In this setup, the Account Manager (AM) **uploads** the Google Sheet into the app. When the content is ready for QA, a developer clicks the **“Release Now”** button, and the changes go straight to staging. This gives the developer a chance to check everything or roll back if needed.
+In this setup, the Account Manager (AM) **uploads** the Google Sheet into the app. When the content is ready for QA, a developer clicks the **“Release Now”** button, and the changes go straight to staging. This gives the developer a chance to check everything visaully on staging or roll back if needed.
 
 **Note:** The “Release Now” button will only be available to developers — the app will have basic auth/permissions in place to manage that.
 
@@ -259,8 +259,10 @@ npm run dev
 You can view the detailed Google Sheet structure here:  
 [Google Sheet Structure Documentation](/docs/adr/googleSheetStructure.md)
 
-Here is a link to an example Google Sheet:  
+Here is a link to an example Google Sheet:
 [Example Google Sheet](https://docs.google.com/spreadsheets/d/1O1_HiT9m0oKcRss_ZCx58W5wjwU486WA2UMyDCcSzxA/edit?usp=sharing)
+
+**_To keep this page open, please open the link in a new tab (e.g., right-click and select "Open in new tab")_**
 
 ---
 

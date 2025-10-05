@@ -8,13 +8,17 @@ Built with **Vite**, **React**, and **TypeScript**.
 
 ## Explanation of Task
 
-- **Task 1** is explained in the ADR: [link to Task one](/docs/adr/task1.md)
+- **Task 1** is written out in the ADR: [Task one](/docs/adr/task1.md)
 
 - **Task 2** can be viewed by:
 
   1. Installing and running this repository (instructions below)
-  2. Updating the Google Sheet [described here](/docs/adr/googleSheetStructure.md).  
-     _TODO: Link to external Google Sheet_
+  2. Updating the Google Sheet [described here](/docs/adr/googleSheetStructure.md)
+
+     **External link** to [Example Google Sheet](https://docs.google.com/spreadsheets/d/1O1_HiT9m0oKcRss_ZCx58W5wjwU486WA2UMyDCcSzxA/edit?usp=sharing)
+
+     **_To keep this page open, please open the google sheet link in a new tab (e.g., right-click and select "Open in new tab")_**
+
   3. Importing the updated CSV into `scripts/csv/input.csv`
   4. Running the script:
 
@@ -41,8 +45,8 @@ Built with **Vite**, **React**, and **TypeScript**.
 ## Install and Run
 
 ```bash
-git clone https://github.com/fiona-p/....
-cd <repository-folder>
+git clone https://github.com/fiona-p/lp-workflow-challenge-prototype.git
+cd lp-workflow-challenge-prototype
 
 # Install dependencies
 npm install
