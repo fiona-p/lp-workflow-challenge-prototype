@@ -43,7 +43,7 @@ export function validateRow(row: Row): boolean {
     }
 
     if (!allowedCtaStyles.includes(row.cta_style as CtaButton)) {
-      console.error('Invalid overlay position:', row);
+      console.error('Invalid cta Style:', row);
       return false;
     }
   }
@@ -56,7 +56,7 @@ export function validateRow(row: Row): boolean {
       row.overlay_content_align as OverLayContentPosition
     )
   ) {
-    console.error('Invalid Content Align Type:***', row.overlay_content_align);
+    console.error('Invalid Content Align Type', row.overlay_content_align);
     return false;
   }
 

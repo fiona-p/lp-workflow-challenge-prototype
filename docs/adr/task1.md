@@ -6,7 +6,7 @@ Account Managers (AMs), who are non-technical team members, frequently receive c
 
 Currently, AMs manually convert this unstructured input into a structured format that developers can use to update landing pages. These updates are frequent, high-volume, and time-sensitive.
 
-The goal is to create a simple, scalable way for AMs to input content in a structured and developer-friendly format, without needing to write or understand code. This will help streamline the workflow and reduce development work.
+The goal is to create a simple, scalable way for AMs to input content in a structured and developer friendly format, without needing to write or understand code. This will help streamline the workflow and reduce development work.
 
 ### Goals
 
@@ -25,11 +25,7 @@ The goal is to create a simple, scalable way for AMs to input content in a struc
 - **Web form** with pre-defined fields for each module/block
 - **Visual editor** that maps modules to page sections
 
----
-
 #### Pros and Cons for Each:
-
----
 
 **Airtable**
 
@@ -81,7 +77,7 @@ The goal is to create a simple, scalable way for AMs to input content in a struc
 
 ### Chosen Solution
 
-I chose **Google Sheets**, as it offered the most practical advantages for this challenge.
+> I chose **Google Sheets**, as it offered the most practical advantages for this challenge.
 
 ### Key Considerations:
 
@@ -98,18 +94,19 @@ I chose **Google Sheets**, as it offered the most practical advantages for this 
 
 This would be a backend setup, such as a custom app with a simple interface to manage content updates.
 It could be a serverless function (e.g. AWS Lambda running a Node.js script), or a more traditional server-based app built with Express.
+The custom app runs a script that converts the CSV data into structured JSON, which is then used to update the code.
 
 **Custom app workflow:**  
-(AM) updates the Google Sheet.
+(AM) updates the Google Sheet, followed by either of the following steps:
 
 - **A: Non Google Sheets API flow**  
   (AM) exports Google Sheets as CSV.  
-  (AM) uploads CSV via an ‘upload’ input on a form displayed on app interface.  
+  (AM) uploads CSV via an **upload** input on a form displayed on app interface.  
   The form submission triggers the script to run.
 
 - **B: Google Sheets API flow (API-driven)**  
   _Note: Needs a service account to authenticate with Google Sheets API._  
-  (AM) clicks on the custom app ‘get latest release’ button and fetches the latest version of the sheet using the Google Sheets API (no need for manual upload).  
+  (AM) clicks on the custom app **get latest sheet update** button and fetches the latest version of the sheet using the Google Sheets API (no need for manual upload).  
   This triggers the script to run.
 
 ### Validation for A and B
@@ -120,7 +117,7 @@ It could be a serverless function (e.g. AWS Lambda running a Node.js script), or
 ### Storage Options
 
 - **A:** Save the JSON as a file in the backend repository, named using the timestamp (e.g. `data-2025-10-02.json`).
-- **B:** Save the JSON to an S3 bucket, also using timestamp-based naming( more scalable).
+- **B:** Save the JSON to an S3 bucket, also using timestamp-based naming (more scalable).
 
 ---
 
@@ -159,7 +156,7 @@ We don't want changes to appear immediately after a sheet update. The (AM) shoul
 ### 1: Custom App Approach
 
 The app will have endpoints like `GET /latest`, accessible via timestamp buttons on the custom app interface.  
-The interface will include **Release** buttons for each timestamp (i.e. which payload to load). When these buttons are clicked one of two flows is triggered:
+The interface will display **Apply Update** buttons for each timestamp (i.e. which payload to load). When these buttons are clicked one of three flows is triggered:
 
 #### A: Send to Developer Review
 
@@ -171,7 +168,7 @@ The interface will include **Release** buttons for each timestamp (i.e. which pa
 
 #### B: Release to Staging
 
-- Clicking the Release button triggers a GitHub Action.
+- Clicking the Apply Update button triggers a GitHub Action.
 - The Custom App sends a webhook POST to GitHub’s workflow_dispatch endpoint, passing the payload
 - GitHub Actions is configured to accept the payload (timestamp), run the script and deploy frontend changes straight to staging.
 - Changes are committed and merged straight to the staging branch.
@@ -187,7 +184,7 @@ There would need to be an easy rollback option, such as reverting to the previou
 Using both methods above, we check a flag in the sheet:
 
 - If `design_change_needed = FALSE`  
-  -> **Release to Staging**: The release button pushes content changes straight to staging for review.  
+  -> **Release to Staging**: The Apply Update button pushes content changes straight to staging for review.  
   _Note: Consider authentication/permissions — do we want the (AM) to have permission to do this?_
 
 - If `design_change_needed = TRUE`  
@@ -199,7 +196,7 @@ Using both methods above, we check a flag in the sheet:
 ### 2: Pipeline Approach
 
 No extra actions are needed here. The JSON is committed to the repo or bundled into the build, so changes appear on staging automatically.  
-The deployment pipeline then deploys the frontend with the updated JSON to staging/live.
+The deployment pipeline then deploys the frontend with the updated JSON to staging.
 
 **Note:** You must consider easy rollback in this scenario — for example, redeploying a previous JSON file.
 
@@ -209,9 +206,9 @@ The deployment pipeline then deploys the frontend with the updated JSON to stagi
 
 I believe the best solution is to use a **Custom App (Option 1)** with the **hybrid approach (C)** for releasing updates.
 
-In this setup, the Account Manager (AM) **uploads** the Google Sheet into the app. When the content is ready for QA, a developer clicks the **“Release Now”** button, and the changes go straight to staging. This gives the developer a chance to check everything visaully on staging or roll back if needed.
+In this setup, the Account Manager (AM) **uploads** the Google Sheet into the app. When the content is ready for QA, a developer clicks the **“Apply Update”** button, and the changes go straight to staging. This gives the developer a chance to check everything visaully on staging or roll back if needed.
 
-**Note:** The “Release Now” button will only be available to developers — the app will have basic auth/permissions in place to manage that.
+**Note:** The “Apply Update” button will only be available to developers — the app will have basic auth/permissions in place to manage that.
 
 If there are design changes flagged (e.g. something new in Figma), the `design_change_needed` flag is set to TRUE. In that case, the app won’t auto-push to staging. Instead, it creates a new Git branch so the developer can review the content, make any design tweaks, and then push it when ready.
 
@@ -231,7 +228,7 @@ This will be a simple, manual flow ie: not automated.
 
 ---
 
-## Flow:
+## Flow for Prototype:
 
 1. Update the Google Sheet
 2. Export/download it as a CSV
@@ -262,7 +259,7 @@ You can view the detailed Google Sheet structure here:
 Here is a link to an example Google Sheet:
 [Example Google Sheet](https://docs.google.com/spreadsheets/d/1O1_HiT9m0oKcRss_ZCx58W5wjwU486WA2UMyDCcSzxA/edit?usp=sharing)
 
-**_To keep this page open, please open the link in a new tab (e.g., right-click and select "Open in new tab")_**
+**_To keep this page open, please open the link in a new tab (right-click and select "Open in new tab")_**
 
 ---
 

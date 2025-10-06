@@ -13,8 +13,6 @@
 
 The Google Sheet represents the content structure of the webpage by breaking it down into **Modules** and **Blocks**.
 
-### Step 1: Think in terms of the page you’re building
-
 - **Module** = a **section** on the page  
   Examples:
 
@@ -30,7 +28,7 @@ The Google Sheet represents the content structure of the webpage by breaking it 
 
 ---
 
-### Step 2: How it is represented in the Google Sheet
+### How it is represented in the Google Sheet
 
 | Column                  | Description                                                                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |

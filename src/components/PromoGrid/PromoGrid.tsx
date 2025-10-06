@@ -1,10 +1,8 @@
-// src/components/PromoGrid.tsx
-import React from 'react';
 import type { Block } from '../../types';
 import styles from './PromoGrid.module.scss';
 import CTAButton from '../CTAButton/CTAButton';
 
-interface Props {
+interface PromoGridProps {
   blocks: Block[];
 }
 
@@ -12,8 +10,7 @@ interface Props {
    Different font options
 */
 
-export const PromoGrid: React.FC<Props> = ({ blocks }) => {
-  console.log('promo blocks', blocks);
+export const PromoGrid = ({ blocks }: PromoGridProps) => {
   if (!blocks?.length) return null;
   return (
     <section className={` ${styles.grid}`} aria-label=' Promo blocks'>

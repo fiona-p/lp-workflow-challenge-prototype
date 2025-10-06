@@ -8,7 +8,7 @@ If I were to continue this project beyond the prototype, here’s how I would mo
 - Expand columns to support additional content types.
 - Introduce dropdowns and validations to help AMs format input correctly.
 
-### 2. Refactor the Codebase for Page Support
+### 2. Refactor the code base for Page Support
 
 - Restructure the JSON format to group modules under each page.
 - Update the front-end logic to render content conditionally based on the page.
@@ -23,7 +23,7 @@ If I were to continue this project beyond the prototype, here’s how I would mo
 
 - Set up a production-ready front-end repo with clean project structure.
 - Add routing to support multiple pages.
-- Integrate preview builds or staging deployments.
+- Integrate staging deployments.
 
 ### 5. Build the Custom App (As Outlined in Task 1)
 
@@ -35,4 +35,4 @@ Create a lightweight custom app (possibly using **Express** or **AWS Lambda**) t
   - Create a branch for developer review.
   - Or merge directly to the staging branch.
 - Adds basic authentication to restrict access and track release actions.
-- Includes a simple rollback mechanism (e.g., revert to previous JSON/staging commit).
+- Includes a simple rollback mechanism (e.g. revert to previous JSON/staging commit).

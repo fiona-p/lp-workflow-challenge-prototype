@@ -9,7 +9,7 @@ interface CTAButtonProps {
 
 // TODO: A button should be more re-usable eg: link vs external/ children as props / loading / disabled etc
 // However for this prototype I will only include the basics
-// Note: No need fo aria-label as label is always visible
+// Note: No need for aria-label as label is always visible
 
 const CTAButton = ({ label, url, variant = 'primary' }: CTAButtonProps) => {
   if (!label) return null;

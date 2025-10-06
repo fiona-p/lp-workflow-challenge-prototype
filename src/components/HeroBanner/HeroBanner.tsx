@@ -1,5 +1,3 @@
-// src/components/HeroBanner.tsx
-
 import type { Block } from '../../types';
 import CTAButton from '../CTAButton/CTAButton';
 import styles from './HeroBanner.module.scss';
@@ -7,6 +5,7 @@ import styles from './HeroBanner.module.scss';
 /* NICE TO HAVE: 
    Different font options
 */
+
 interface HeroBannerProps {
   blocks: Block[];
 }

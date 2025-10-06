@@ -17,7 +17,7 @@ Built with **Vite**, **React**, and **TypeScript**.
 
      **External link** to [Example Google Sheet](https://docs.google.com/spreadsheets/d/1O1_HiT9m0oKcRss_ZCx58W5wjwU486WA2UMyDCcSzxA/edit?usp=sharing)
 
-     **_To keep this page open, please open the google sheet link in a new tab (e.g., right-click and select "Open in new tab")_**
+     **_To keep this page open, please open the google sheet link in a new tab (right-click and select "Open in new tab")_**
 
   3. Importing the updated CSV into `scripts/csv/input.csv`
   4. Running the script:
@@ -32,7 +32,7 @@ Built with **Vite**, **React**, and **TypeScript**.
      npm run fetchCsv
      ```
 
-  5. Running the local server to view the changes:
+  5. Running the project locally to view the changes:
 
      ```bash
      npm run dev
